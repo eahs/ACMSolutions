@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ACMHelper;
 
 namespace GreatestChainOfBeing
 {
@@ -13,11 +14,20 @@ namespace GreatestChainOfBeing
 
             Console.Write("Numbers in list: ");
             List<string> nums = Console.ReadLine().Split(' ').ToList();
+            List<string> results = new List<string>();
 
-            nums.Sort();
-            nums.Reverse();
+            var permutations = nums.Permute();
 
-            Console.Write(String.Join("", nums));
+            foreach (var permutation in permutations)
+            {
+                List<string> p = permutation.ToList();
+                results.Add(String.Join("", p.ToArray()));
+            }
+
+            results.Sort();
+            results.Reverse();
+
+            Console.Write(results[0]);
 
 
         }
