@@ -16,6 +16,14 @@ namespace GreatestChainOfBeing
             List<string> nums = Console.ReadLine().Split(' ').ToList();
             List<string> results = new List<string>();
 
+            // Credit to Anna DiFelice for finding this algorithm
+            nums.Sort((a, b) => (a+b).ToInteger().CompareTo((b+a).ToInteger()));
+            nums.Reverse();
+
+            Console.Write(String.Join("", nums.ToArray()));
+
+            /*
+            // Tanczos Brute force approach.. 
             var permutations = nums.Permute();
 
             foreach (var permutation in permutations)
@@ -26,8 +34,7 @@ namespace GreatestChainOfBeing
 
             results.Sort();
             results.Reverse();
-
-            Console.Write(results[0]);
+            */
 
 
         }
